@@ -19,6 +19,8 @@ export const Secondary: Story = { args: { variant: 'secondary', children: 'Cance
 
 export const Danger: Story = { args: { variant: 'danger', children: 'Borrar sesión' } }
 
+export const Text: Story = { args: { variant: 'text', children: 'Añadir ejercicio' } }
+
 export const Disabled: Story = { args: { disabled: true } }
 
 export const Loading: Story = { args: { loading: true } }

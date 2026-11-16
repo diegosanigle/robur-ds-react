@@ -16,6 +16,8 @@ const NEUTRAL = {
   fill: /^(none|current)$/,
   stroke: /^(none|current|\d+)$/,
 }
+// Piezas que no son de interfaz propia: las de React y las del router. No dibujan nada que el sistema deba cubrir.
+const BUILT_IN = ['Fragment', 'StrictMode', 'Suspense', 'BrowserRouter', 'Routes', 'Route', 'Link', 'NavLink', 'Navigate', 'Outlet']
 const BLAME = /\b(objetivos?|metas?|fallaste|fallado|fracas\w+|no has (entrenado|cumplido|hecho)|deberías|te falta[n]?)\b|¡/i
 
 export function validate(code, data, { level = 'screen' } = {}) {
@@ -51,14 +53,23 @@ export function validate(code, data, { level = 'screen' } = {}) {
   }
 
   // 4. Piezas y props que no existen.
+  // Las piezas propias de la app: las definidas en el fichero y las importadas de otro fichero suyo (ruta relativa).
+  // Cada una se revisa en su propio fichero.
   const local = new Set([...code.matchAll(/(?:function|const|class)\s+([A-Z]\w*)/g)].map((m) => m[1]))
+  for (const m of code.matchAll(/import\s+(?:([A-Z]\w*)|\{([^}]*)\})\s+from\s+['"]\.{1,2}\/[^'"]*['"]/g)) {
+    if (m[1]) local.add(m[1])
+    for (const name of (m[2] ?? '').split(',')) {
+      const alias = name.trim().split(/\s+as\s+/).pop()
+      if (/^[A-Z]/.test(alias)) local.add(alias)
+    }
+  }
   for (const m of code.matchAll(/<([A-Z]\w*)((?:\s+[\w-]+(?:=(?:"[^"]*"|'[^']*'|\{(?:[^{}]|\{[^{}]*\})*\}))?)*)\s*\/?>/g)) {
     const name = m[1]
     // Las expresiones entre llaves se vacían: su contenido no son props.
     const attrs = m[2].replace(/\{(?:[^{}]|\{[^{}]*\})*\}/g, '{}')
     const piece = pieces[name]
     if (!piece) {
-      if (!local.has(name) && name !== 'Fragment') add('unknown-component', 'error', `<${name}> no existe en el sistema. Mira get_catalog; si falta, proponlo.`, m.index)
+      if (!local.has(name) && !BUILT_IN.includes(name)) add('unknown-component', 'error', `<${name}> no existe en el sistema. Mira get_catalog; si falta, proponlo.`, m.index)
       continue
     }
     for (const attr of attrs.matchAll(/\s([\w-]+)(?:=(?:"([^"]*)"|'([^']*)'|\{))?/g)) {

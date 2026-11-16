@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Button, Card, Checkbox, Chip, ExerciseRow, HeatmapCell, Input, StatCard, Tabs } from '..'
+import { BarChart, Button, Card, Checkbox, Chip, ExerciseRow, HeatmapCell, HeatmapYear, Icon, Input, LineChart, ListRow, Select, StatCard, Tabs, WeekStrip } from '..'
 
 const meta = {
   title: 'Resumen/Todos los componentes',
@@ -32,6 +32,25 @@ function Sampler() {
         <HeatmapCell week={15} sessions={0} rest />
         <HeatmapCell week={16} sessions={2} current />
       </div>
+      <HeatmapYear year={2026} weeks={Array.from({ length: 52 }, (_, i) => ({ week: i + 1, sessions: (i * 7) % 5, current: i === 45 }))} />
+      <Card variant="inverse">
+        <WeekStrip days={['L', 'M', 'X', 'J', 'V', 'S', 'D'].map((label, i) => ({ label, name: `día ${i + 1}`, done: i % 3 === 0, current: i === 3 }))} />
+      </Card>
+      <BarChart title="Volumen semanal" data={[3, 1.5, 0, 2.5, 4, 2].map((value, i) => ({ label: String(40 + i), value }))} />
+      <LineChart variant="inverse" title="Press de hombro, peso (kg)" data={[20, 22.5, 22.5, 25, 27.5].map((value, i) => ({ label: `0${i + 1}-11`, value }))} />
+      <ul>
+        <ListRow title="Empuje" detail="Lun 9 nov · 6 ejercicios" onSelect={noop} />
+        <ListRow title="Press de hombro" detail="3 × 12">
+          <Button variant="text">Quitar</Button>
+        </ListRow>
+        <ListRow title="Pierna" value="12" />
+      </ul>
+      <Select label="Ejercicio" placeholder="Elige un ejercicio" options={[{ value: 'press', label: 'Press de hombro' }]} />
+      <div className="flex gap-3 text-primary">
+        <Icon name="home" size="lg" />
+        <Icon name="plus" size="lg" />
+        <Icon name="check" size="lg" />
+      </div>
       <div className="flex gap-2">
         <Chip selected>Empuje</Chip>
         <Chip>Tirón</Chip>
@@ -49,6 +68,7 @@ function Sampler() {
         <Button>Guardar sesión</Button>
         <Button variant="secondary">Cancelar</Button>
         <Button variant="danger">Borrar sesión</Button>
+        <Button variant="text">Añadir ejercicio</Button>
       </div>
     </div>
   )

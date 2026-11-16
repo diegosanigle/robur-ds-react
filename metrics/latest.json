@@ -1,13 +1,13 @@
 {
-  "date": "2026-11-11",
+  "date": "2026-11-16",
   "system": {
-    "components": 11,
-    "patterns": 3,
+    "components": 18,
+    "patterns": 5,
     "semanticTokens": 36,
     "primitiveColors": 31,
     "textStyles": 9,
     "themes": 2,
-    "stories": 58
+    "stories": 97
   },
   "coverage": {
     "contracts": 100,
@@ -38,12 +38,12 @@
     }
   },
   "app": {
-    "date": "2026-11-11",
-    "files": 31,
-    "filesUsingSystem": 0,
-    "rawControls": 17,
-    "hexColors": 12,
-    "arbitraryValues": 20,
-    "classesOutsideSystem": 99
+    "date": "2026-11-16",
+    "files": 24,
+    "filesUsingSystem": 19,
+    "rawControls": 0,
+    "hexColors": 0,
+    "arbitraryValues": 0,
+    "classesOutsideSystem": 0
   }
 }
