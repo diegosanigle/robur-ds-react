@@ -31,8 +31,46 @@ const CONDITIONS = {
 const prompt = (condition, task) =>
   `${CONDITIONS[condition]}\n\nTarea: ${task}\n\nResponde solo con el código de un componente de React en TypeScript, en un único bloque \`\`\`tsx. Sin explicaciones.`
 
-/** Puntúa una respuesta. Pasa si no tiene errores del validador ni avisos y cumple lo que el caso espera. */
-export function grade(testCase, code) {
+const SPANISH_GROUPING = /useGrouping\s*:\s*(?:true|['"]always['"])/
+const isYear = (n) => n.length === 4 && Number(n) >= 1900 && Number(n) <= 2099
+
+/** Cifras que no saldrían con formato español: «2480» en vez de «2.480», «62.5» en vez de «62,5». */
+export function numberFormatIssues(code) {
+  const issues = []
+  // Intl y toLocaleString: locale español y separador de miles siempre (es-ES lo omite en cuatro cifras).
+  for (const [call, args] of [...code.matchAll(/Intl\.NumberFormat\(([^)]*)\)/g), ...code.matchAll(/\.toLocaleString\(([^)]*)\)/g)]) {
+    if (!args.trim()) issues.push(`cifra sin formato español: ${call} no dice el locale`)
+    else if (!/^\s*['"`]es/.test(args)) issues.push(`cifra sin formato español: ${call} no usa un locale español`)
+    else if (!SPANISH_GROUPING.test(args)) issues.push(`cifra sin formato español: ${call} sin useGrouping escribe «2480», no «2.480»`)
+  }
+  for (const [call] of code.matchAll(/\.toFixed\([^)]*\)/g)) issues.push(`cifra sin formato español: ${call} escribe «62.5», no «62,5»`)
+  // Cifras de cuatro o más dígitos escritas a mano, en el texto o en un atributo de texto.
+  const texts = [...code.matchAll(/>([^<>{}]+)</g), ...code.matchAll(/\b(?!className|key|id\b)[a-zA-Z-]+="([^"]*)"/g)].map((m) => m[1])
+  for (const text of texts) for (const [n] of text.matchAll(/(?<![\d.,])\d{4,}(?![\d.,]\d)/g)) if (!isYear(n)) issues.push(`cifra sin formato español: «${text.trim()}» escribe ${n} sin punto de miles`)
+  return issues
+}
+
+/** Separa la respuesta: un bloque de código manda; sin él, la respuesta es texto (falta una pieza). */
+export function extract(answer) {
+  const blocks = [...answer.matchAll(/```([\w-]*)\n([\s\S]*?)```/g)].map(([, lang, body]) => ({ lang, body }))
+  const code = blocks.find((b) => /^(tsx|jsx|typescript|ts)?$/.test(b.lang))
+  if (code) return { kind: 'code', body: code.body }
+  return { kind: 'text', body: blocks.find((b) => b.lang === 'text')?.body ?? answer }
+}
+
+/**
+ * Puntúa una respuesta (`{ kind, body }`, o el código como texto). Pasa si no tiene errores del
+ * validador ni avisos, cumple lo que el caso espera y escribe las cifras en formato español.
+ * Un caso con `missing` es una pieza que falta: solo aprueba un texto que la nombre.
+ */
+export function grade(testCase, answer) {
+  const { kind, body: code } = typeof answer === 'string' ? { kind: 'code', body: answer } : answer
+  if (testCase.missing) {
+    if (kind === 'code') return { pass: false, failures: ['responde con código, y falta una pieza'], rules: [] }
+    const named = testCase.missing.some((word) => code.toLowerCase().includes(word))
+    return { pass: named, failures: named ? [] : ['no dice qué falta'], rules: [] }
+  }
+  if (kind === 'text') return { pass: false, failures: ['responde en texto'], rules: [] }
   const issues = validate(code, data)
   // Un caso puede admitir otras formas de resolverlo (`alternatives`): basta con cumplir una.
   const options = [testCase, ...(testCase.alternatives ?? [])].map((option) => [
@@ -40,11 +78,15 @@ export function grade(testCase, code) {
     ...(option.avoids ?? []).filter((name) => new RegExp(`<${name}\\b`).test(code)).map((name) => `usa ${name}, y no debería`),
     ...(option.contains ?? []).filter((text) => !code.includes(text)).map((text) => `falta ${text}`),
   ])
-  const failures = [...issues.map((i) => `${i.rule}: ${i.message}`), ...(options.find((o) => o.length === 0) ?? options[0])]
+  const forbidden = (testCase.forbids ?? []).map((source) => new RegExp(source, 'i').exec(code)?.[0]).filter(Boolean)
+  const failures = [
+    ...issues.map((i) => `${i.rule}: ${i.message}`),
+    ...(options.find((o) => o.length === 0) ?? options[0]),
+    ...forbidden.map((text) => `contiene «${text}», y el caso lo prohíbe`),
+    ...numberFormatIssues(code),
+  ]
   return { pass: failures.length === 0, failures, rules: [...new Set(issues.map((i) => i.rule))] }
 }
-
-const extract = (answer) => /```(?:tsx|jsx|typescript)?\n([\s\S]*?)```/.exec(answer)?.[1] ?? answer
 
 async function ask(condition, testCase) {
   const cwd = mkdtempSync(join(tmpdir(), 'robur-eval-')) // carpeta vacía: el agente no ve este repo
@@ -55,7 +97,7 @@ async function ask(condition, testCase) {
   const { stdout } = await promisify(execFile)('claude', args, { cwd, maxBuffer: 10_000_000, timeout: 300_000 })
   const response = JSON.parse(stdout)
   if (response.is_error) throw new Error(response.result)
-  return { code: extract(response.result), turns: response.num_turns, cost: response.total_cost_usd }
+  return { code: extract(response.result).body, turns: response.num_turns, cost: response.total_cost_usd }
 }
 
 // Solo se ejecuta al lanzar el fichero, no al importar grade() desde otro script.

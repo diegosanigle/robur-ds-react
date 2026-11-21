@@ -40,6 +40,7 @@
       "task": "La pantalla para registrar la sesión de hoy: elegir el tipo de día, marcar los ejercicios hechos y guardar.",
       "uses": ["SessionLog"],
       "avoids": ["FormLayout"],
+      "forbids": ["\\d+\\s*/\\s*\\d+", "%", "completad[oa]s?"],
       "why": "Existe un patrón completo. No debe añadir progreso ni recuentos."
     }
   ]
