@@ -2,7 +2,7 @@
 // Si el corrector se equivoca con estas dos, sus notas no valen.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { extract, grade, numberFormatIssues } from '../evals/run.mjs'
+import { extract, grade, numberFormatIssues, rulesPrompt } from '../evals/run.mjs'
 import { root } from './lib/tokens.mjs'
 
 const { cases } = JSON.parse(readFileSync(join(root, 'evals', 'cases.json'), 'utf8'))
@@ -18,7 +18,15 @@ for (const rule of ['unknown-class', 'no-arbitrary', 'no-raw-control', 'neutral-
 }
 if (!bad.failures.includes('no usa EmptyState')) errors.push('no detecta que falta el patrón')
 if (!good.pass) errors.push(`la respuesta buena suspende: ${good.failures.join('; ')}`)
-for (const c of cases) if (!c.uses?.length || !c.why) errors.push(`el caso ${c.id} no dice qué debe usar o por qué`)
+for (const c of cases) if (!(c.uses?.length || c.missing?.length) || !c.why) errors.push(`el caso ${c.id} no dice qué debe usar (o qué falta) o por qué`)
+if (cases.length !== 12) errors.push(`hay ${cases.length} casos, y son 12`)
+if (new Set(cases.map((c) => c.id)).size !== cases.length) errors.push('hay ids de caso repetidos')
+
+// La condición con-reglas pega el catálogo y las reglas, sin la cabecera que las ata a ficheros del repo.
+const rules = rulesPrompt()
+if (!rules.includes('Catálogo de Robur DS')) errors.push('con-reglas no lleva el catálogo')
+if (!rules.includes('Textos de la interfaz')) errors.push('con-reglas no lleva la regla de textos')
+if (/^paths:/m.test(rules)) errors.push('con-reglas lleva la cabecera paths: de las reglas')
 for (const c of cases) for (const alt of c.alternatives ?? []) if (!alt.uses?.length) errors.push(`una alternativa del caso ${c.id} no dice qué debe usar`)
 
 // Una alternativa válida también aprueba: la confirmación con el patrón ConfirmSheet (respuesta real de un agente).
