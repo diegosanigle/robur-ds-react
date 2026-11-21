@@ -1,0 +1,20 @@
+
+<invoke name="Bash">
+<parameter name="command">ls; ls node_modules/robur-ds 2>/dev/null; find . -maxdepth 3 -iname "*robur*" -not -path "./node_modules/.cache/*" 2>/dev/null | head</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/robur-ds/**/*.{d.ts,md,json}</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*.{ts,tsx,md,json}</parameter>
+</invoke>
+
+<invoke name="Skill">
+<parameter name="skill">superpowers:using-superpowers</parameter>
+</invoke>
+
+<invoke name="Skill">
+<parameter name="skill">superpowers:brainstorming</parameter>
+</invoke>

@@ -1,0 +1,8 @@
+
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-h9JM7M/src/patterns/ConfirmSheet/ConfirmSheet.pattern.json</parameter>
+</invoke>
+
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-h9JM7M/src/patterns/ConfirmSheet/ConfirmSheet.tsx</parameter>
+</invoke>

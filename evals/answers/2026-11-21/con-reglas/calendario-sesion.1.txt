@@ -1,0 +1,23 @@
+Falta una pieza: el sistema no tiene un selector de fecha ni un calendario.
+
+Lo más cercano no sirve:
+- HeatmapYear y HeatmapCell muestran semanas ISO como estadística, no días elegibles. No tienen selección ni navegación por meses.
+- Input solo admite texto o una cifra. Escribir la fecha a mano obliga a conocer el formato y no es un calendario.
+- Select con una lista de días sería muy larga y tampoco es un calendario.
+- Chip y Button servirían para dibujar cada día, pero montar la rejilla a mano rompe la regla de no inventar piezas.
+
+Propongo:
+
+1. Componente nuevo `DatePicker` (calendario de un mes):
+   - Props: `label`, `value` (fecha elegida), `max` (último día elegible; las sesiones pasadas no pueden ser futuras), `min`, `hint`, `error`.
+   - Cabecera con mes y año, con botones anterior y siguiente (nombre accesible: «Mes anterior», «Mes siguiente»), semana que empieza en lunes y nombres de día en español.
+   - Cada día es un botón de 44 px como mínimo. El día elegido es un estado `selected`, no una variante. Los días posteriores a `max` aparecen deshabilitados.
+   - Debe poder usarse con teclado (flechas entre días) y tener una story `Interaccion`.
+   - Usa solo tokens existentes: `bg-selected` y `text-on-selected` para el día elegido, `border-current`/`bg-heat-current` no, así que para «hoy» hay que proponer un token o reutilizar `border-action`.
+   - Composes: `Icon` (`chevron-right` y, si hace falta, un `chevron-left` que hoy no existe en el juego de iconos; habría que añadirlo).
+
+2. Opcional: abrirlo dentro de un `Sheet` desde un campo que muestre la fecha, para no ocupar la pantalla de registro.
+
+3. Cuando exista, `SessionLog` debería incorporarlo con una regla clara: por defecto la sesión se registra con la fecha de hoy y el calendario solo aparece al pulsar «Cambiar fecha».
+
+Dime si apruebo el componente y el icono `chevron-left`, y lo creo siguiendo `/nuevo-componente`.

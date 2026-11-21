@@ -1,0 +1,18 @@
+Falta una pieza: el sistema no tiene un calendario ni un selector de fecha (DatePicker/Calendar). No lo he dibujado a mano, porque las reglas prohíben inventar controles.
+
+Qué hay y por qué no sirve:
+- Input: es de una línea para texto o cifras, y no tiene tipo fecha. Escribir la fecha a mano no es elegir en un calendario.
+- Select y Chip: sirven para pocas opciones o listas, no para elegir un día entre meses.
+- WeekStrip: muestra solo la semana en curso, no sesiones pasadas.
+- HeatmapYear: muestra semanas ISO, no días.
+
+Propuesta: crear un componente `DatePicker` (o `Calendar`) con estos puntos:
+- Rejilla mensual, con semana que empieza en lunes y textos en español.
+- Marca en los días con sesión, igual que WeekStrip.
+- Días futuros desactivados (`maxDate` = hoy).
+- Props: `value`, `onChange`, `month`, `onMonthChange`, `minDate`, `maxDate`, `markedDates`.
+- Navegación entre meses con botones de Icon.
+- Teclado: flechas para moverse entre días, Enter para elegir.
+- Etiqueta accesible por día, por ejemplo «21 de noviembre, con sesión».
+- Dentro de un Sheet para el flujo de «sesión pasada».
+- Sin tokens nuevos: usaría bg-action para el día elegido y los tokens de heat para el marcador.

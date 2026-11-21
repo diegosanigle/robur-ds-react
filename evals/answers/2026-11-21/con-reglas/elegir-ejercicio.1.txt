@@ -1,0 +1,8 @@
+
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Hz32I7/src/components/Select/Select.contract.json</parameter>
+</invoke>
+
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Hz32I7/src/components/Select/Select.tsx</parameter>
+</invoke>

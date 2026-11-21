@@ -1,0 +1,14 @@
+Falta una pieza para este aviso: el catálogo de Robur DS no tiene Toast, Snackbar ni Banner. No existe nada que muestre un mensaje temporal que desaparece solo.
+
+Las piezas más cercanas no sirven:
+- Sheet es una hoja modal que interrumpe. No es un aviso breve que se cierra solo.
+- ConfirmSheet pide confirmación antes de una acción irreversible.
+- Card es una superficie estática. Con ella tendría que montar a mano el posicionamiento, el temporizador y el aria-live, y eso va contra la regla de no improvisar.
+
+Propongo añadir un componente `Toast`:
+- Props: `message` (string), `open` (boolean), `onClose` (() => void), `duration` (número en ms, 4000 por defecto) y `variant` ("success" | "neutral").
+- Comportamiento: se ancla abajo, por encima de BottomNav. Usa `role="status"` y `aria-live="polite"`. Se cierra solo tras `duration` y el temporizador se pausa con el foco o el hover. Respeta `prefers-reduced-motion`.
+- Tokens: fondo `bg-inverse` con su texto de contraste, y un Icon de check.
+- Texto de ejemplo: «Sesión guardada».
+
+Con ese contrato aprobado, el componente de la sesión guardada sería un uso directo de `Toast`.

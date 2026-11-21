@@ -1,0 +1,17 @@
+Falta una pieza: el catálogo no tiene ningún aviso temporal (Toast).
+
+Por qué no se puede resolver con lo que hay:
+- Sheet es una hoja modal: bloquea la pantalla y exige cerrarla. Un aviso que confirma y se va solo no debe interrumpir.
+- Card solo agrupa contenido. No lleva rol de aviso ni sabe desaparecer, y hacerlo a mano en un patrón rompe la regla de que los patrones no dibujan piezas nuevas.
+- Ningún componente anuncia su aparición a un lector de pantalla (role="status").
+
+Propuesta: componente nuevo `Toast`, creado con /nuevo-componente (contrato primero, después código).
+- Props: `children` (el mensaje), `variant` (default · success), `duration` (milisegundos hasta que desaparece, por defecto 4000), `onClose`.
+- Usa `role="status"` y `aria-live="polite"` para que se anuncie sin quitar el foco.
+- Se ancla abajo, por encima de BottomNav, con `bg-inverse`, `text-on-inverse`, `rounded-lg` y `shadow-md`. No hacen falta tokens nuevos.
+- Stories: una por variante, más `Interaccion`, que comprueba que desaparece pasado el tiempo.
+- Rutas de los ficheros: `src/components/Toast/`, con `Toast.tsx`, `Toast.stories.tsx`, `Toast.contract.json` e `index.ts`.
+
+Texto sugerido para este caso: «Sesión guardada». Sin exclamación ni valoración del entrenamiento.
+
+Cuando exista Toast, el componente de la sesión guardada será solo una composición de `Toast` con ese mensaje.

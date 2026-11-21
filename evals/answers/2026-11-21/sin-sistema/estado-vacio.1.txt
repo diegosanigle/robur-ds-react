@@ -1,0 +1,11 @@
+No pude confirmar qué exporta "robur-ds": no tengo su catálogo ni sus tipos a la vista, y en el directorio de trabajo no hay un proyecto con el paquete instalado. Para no inventar nombres de componentes ni props, no genero el código.
+
+Falta (o no puedo verificar):
+- EmptyState: la pieza del estado vacío, con ícono o ilustración, título, descripción y slot de acción.
+- Button (variante primaria): para la acción "Registrar sesión".
+
+Propongo:
+1. Que me compartas el índice de exports de robur-ds (node_modules/robur-ds/dist/index.d.ts o la documentación) para usar las piezas reales.
+2. Si EmptyState no existe, añadirlo al Design System con la API:
+   <EmptyState icon={...} title="Sin sesiones esta semana" description="Registra tu primer entrenamiento para empezar a ver tu progreso." action={<Button onClick={onRegister}>Registrar sesión</Button>} />
+3. Con eso, el componente del historial (WeeklyHistoryEmpty) sería solo composición de EmptyState + Button, con la prop onRegister: () => void, sin estilos manuales con Tailwind.

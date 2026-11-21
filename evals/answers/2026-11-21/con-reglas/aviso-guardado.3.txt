@@ -1,0 +1,22 @@
+Falta una pieza: no hay ningún componente de aviso transitorio (toast/snackbar) en el catálogo.
+Sheet es modal y exige que la persona lo cierre, y ScreenState y EmptyState son para cargas
+y listas vacías. Ninguno sirve para confirmar algo y desaparecer solo. No lo dibujo a mano
+con clases sueltas.
+
+Propongo un componente nuevo, `Toast`, creado con /nuevo-componente (contrato primero):
+
+- Props: `open`, `duration` (milisegundos hasta que se cierra solo), `onClose`, `children`.
+- Semántica: contenedor con `role="status"` y `aria-live="polite"`, para que los lectores de
+  pantalla lo anuncien sin quitar el foco. Sin botón obligatorio; el cierre automático
+  lo gestiona el componente y llama a `onClose`.
+- Tokens existentes, sin crear ninguno nuevo: `bg-inverse`, `text-on-inverse`, `text-body`,
+  `rounded-md`, `shadow-md`. El par bg-inverse / text-on-inverse ya está en contrast.json.
+- Stories: abierto, cerrado y `Interaccion` (aparece y desaparece pasado el tiempo).
+- Texto de la interfaz: «Sesión guardada», sin exclamaciones ni lenguaje de logro.
+- Después, sincronizar con Figma (/sincronizar-figma).
+
+Cuando exista `Toast`, el aviso de sesión guardada será un uso directo:
+<Toast open={saved} onClose={() => setSaved(false)}>Sesión guardada</Toast>
+
+Si el aviso va a repetirse tras varias acciones (guardar, borrar), propongo además que
+SessionLog lo incorpore como parte del patrón.

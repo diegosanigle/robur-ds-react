@@ -1,0 +1,10 @@
+No puedo confirmar qué piezas exporta "robur-ds": no tengo acceso a su catálogo ni a su documentación (no está instalado en el directorio de trabajo). Un selector de una sola opción entre tres valores (Empuje, Tirón, Pierna) necesita un componente de selección exclusiva, y no voy a construirlo a mano con Tailwind.
+
+Falta (o no he podido verificar que exista):
+- SegmentedControl, ToggleGroup o RadioGroup de selección única, con estado seleccionado, foco por teclado y accesibilidad (role="radiogroup").
+
+Propongo:
+1. Que me indiques la pieza equivalente en robur-ds, o que instales el paquete o me des su documentación para comprobarlo.
+2. Si no existe, añadir `SegmentedControl` al Design System con esta API:
+   `<SegmentedControl value={value} onValueChange={setValue} options={[{ value: "push", label: "Empuje" }, { value: "pull", label: "Tirón" }, { value: "legs", label: "Pierna" }]} aria-label="Tipo de día" />`
+3. Con la pieza confirmada, escribo el componente `DayTypeSelector` tipado con `type DayType = "push" | "pull" | "legs"`.

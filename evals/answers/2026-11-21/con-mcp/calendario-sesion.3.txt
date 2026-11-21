@@ -1,0 +1,22 @@
+Falta una pieza: el sistema no tiene un calendario ni un selector de fecha (DatePicker o Calendar).
+
+Lo más parecido que hay no sirve para esto:
+- WeekStrip solo muestra los siete días de la semana en curso. No permite elegir una fecha pasada.
+- HeatmapYear agrupa por semana ISO, no por día, y no es seleccionable.
+- Input es de una línea y no tiene un tipo de fecha en su contrato.
+- Select y Chip sirven para pocas opciones o listas de opciones. Un mes entero de días no encaja y no se vería como un calendario.
+
+Dibujar la cuadrícula del mes con <button> sueltos rompería la regla de no hacer a mano lo que el sistema no cubre.
+
+Propongo una pieza nueva, DatePicker (o Calendar), con estas características:
+- Rejilla mensual con semanas que empiezan en lunes.
+- Navegación entre meses con Button o Icon.
+- Prop maxDate para bloquear los días futuros, porque aquí solo se eligen sesiones pasadas.
+- Marca en los días que ya tienen sesión, igual que WeekStrip.
+- Valor, onChange y label obligatorio.
+- Texto en español, por ejemplo «Elige el día de la sesión».
+- Navegación por teclado con flechas y objetivos táctiles de al menos 44 px.
+- Tokens existentes para el estado seleccionado, el día de hoy y los días bloqueados.
+- Opcionalmente, mostrarse dentro de Sheet en móvil.
+
+Cuando exista, la pantalla sería un DatePicker dentro de FormLayout o Sheet, con un único Button primary «Guardar fecha».

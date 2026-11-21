@@ -1,0 +1,22 @@
+
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy/src/patterns/ScreenState/ScreenState.pattern.json</parameter>
+</invoke>
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy/src/components/Tabs/Tabs.contract.json</parameter>
+</invoke>
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy/src/components/BarChart/BarChart.contract.json</parameter>
+</invoke>
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy/src/components/HeatmapYear/HeatmapYear.contract.json</parameter>
+</invoke>
+<invoke name="Read">
+<parameter name="file_path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy/src/components/StatCard/StatCard.contract.json</parameter>
+</invoke>
+
+
+
+<invoke name="Bash">
+<parameter name="command">ls -R /private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-b1pXiy | head -50</parameter>
+</invoke>

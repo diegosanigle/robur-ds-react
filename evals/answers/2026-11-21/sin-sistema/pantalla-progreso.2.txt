@@ -1,0 +1,9 @@
+Voy a revisar qué piezas exporta robur-ds antes de escribir el componente.
+
+
+<invoke name="Glob">
+<parameter name="pattern">**/robur-ds/**/*.{json,d.ts,md,tsx,ts}</parameter>
+</invoke>
+<invoke name="Glob">
+<parameter name="pattern">*</parameter>
+</invoke>

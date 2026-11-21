@@ -1,0 +1,11 @@
+Voy a revisar qué piezas expone `robur-ds` antes de escribir nada.
+
+
+<invoke name="Glob">
+<parameter name="pattern">**/robur-ds/**/*</parameter>
+<parameter name="path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Rfnx13</parameter>
+</invoke>
+<invoke name="Glob">
+<parameter name="pattern">*</parameter>
+<parameter name="path">/private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Rfnx13</parameter>
+</invoke>

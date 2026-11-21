@@ -1,0 +1,15 @@
+Falta una pieza: Robur DS no tiene un calendario ni un selector de fecha (DatePicker/Calendar). Las piezas más cercanas no sirven para esta tarea:
+- WeekStrip solo muestra los siete días de la semana en curso y no deja elegir un día pasado.
+- HeatmapYear agrupa por semana ISO, no por día.
+- Input (también con type="date") no es un calendario y no está pensado para fechas. Chip o Select no cubren una cuadrícula mensual.
+Hacerlo a mano con botones y estilos propios va contra las reglas del sistema.
+
+Propongo:
+1. Un componente nuevo `Calendar` (cuadrícula mensual):
+   - Props: `value`, `onChange`, `min`, `max` (aquí, `max` = hoy) y `markedDates` (días con sesión, como en WeekStrip).
+   - Navegación entre meses, semana que empieza en lunes, textos en español.
+   - Día seleccionado, día de hoy y días deshabilitados como estados, con tokens existentes (bg-action, border-action, focus ring).
+   - Accesible con teclado (flechas) y con `aria-label` en cada día.
+2. Un patrón `DatePickerSheet` que lo envuelva en un `Sheet`, con el título «Elegir día de la sesión» y el botón primary «Elegir día».
+
+Cuando existan, escribo la pantalla con ellos.

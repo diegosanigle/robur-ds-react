@@ -1,232 +1,1288 @@
 {
-  "date": "2026-11-16",
+  "date": "2026-11-21",
   "model": "sonnet",
+  "passes": 3,
+  "cases": 12,
   "conditions": {
     "sin-sistema": {
-      "passed": 0,
-      "total": 6,
-      "rate": 0,
+      "passed": 1,
+      "total": 36,
+      "rate": 3,
       "cases": [
         {
           "id": "estado-vacio",
-          "pass": false,
-          "failures": [
-            "unknown-class: La clase \"text-neutral-400\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-600\" no existe en el sistema. Consulta get_tokens.",
-            "neutral-copy: Texto \"Aún no has entrenado esta semana\": \"no has entrenado\" suena a meta, a fallo o a exclamación. Robur registra, no juzga.",
-            "no usa EmptyState"
-          ],
-          "rules": [
-            "unknown-class",
-            "neutral-copy"
-          ],
-          "turns": 1,
-          "cost": 0.023930899999999998
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "estado-vacio.1.txt",
+              "pass": false,
+              "failures": [
+                "responde en texto"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0255289
+            },
+            {
+              "answer": "estado-vacio.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0194289
+            },
+            {
+              "answer": "estado-vacio.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0239629
+            }
+          ]
         },
         {
           "id": "formulario-ejercicio",
-          "pass": false,
-          "failures": [
-            "no usa FormLayout",
-            "no usa Input"
-          ],
-          "rules": [],
-          "turns": 1,
-          "cost": 0.0212409
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "formulario-ejercicio.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.020960899999999998
+            },
+            {
+              "answer": "formulario-ejercicio.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0200009
+            },
+            {
+              "answer": "formulario-ejercicio.3.txt",
+              "pass": false,
+              "failures": [
+                "responde en texto"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.023316899999999998
+            }
+          ]
         },
         {
           "id": "borrar-sesion",
-          "pass": false,
-          "failures": [
-            "unknown-class: La clase \"bg-black\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"rounded-t-2xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"shadow-xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"rounded-2xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"rounded-full\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-300\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-700\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-50\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-600\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-300\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-300\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-100\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"ring-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-700\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-50\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-800\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"ring-neutral-50\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-red-600\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-red-700\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"ring-red-600\" no existe en el sistema. Consulta get_tokens.",
-            "no-raw-control: <button> dibujado a mano: usa Button.",
-            "no-raw-control: <button> dibujado a mano: usa Button.",
-            "unknown-component: <HTMLButtonElement> no existe en el sistema. Mira get_catalog; si falta, proponlo.",
-            "no usa Sheet",
-            "no usa Button",
-            "falta variant=\"danger\"",
-            "falta variant=\"secondary\""
-          ],
-          "rules": [
-            "unknown-class",
-            "no-raw-control",
-            "unknown-component"
-          ],
-          "turns": 1,
-          "cost": 0.0348209
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "borrar-sesion.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0224209
+            },
+            {
+              "answer": "borrar-sesion.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0194829
+            },
+            {
+              "answer": "borrar-sesion.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0210149
+            }
+          ]
         },
         {
           "id": "resumen-semana",
-          "pass": false,
-          "failures": [
-            "unknown-class: La clase \"rounded-2xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-200\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-xs\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-600\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-6xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-200\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-xs\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-800\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-xs\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-800\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "no usa StatCard"
-          ],
-          "rules": [
-            "unknown-class"
-          ],
-          "turns": 1,
-          "cost": 0.028182899999999997
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "resumen-semana.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0213589
+            },
+            {
+              "answer": "resumen-semana.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0199129
+            },
+            {
+              "answer": "resumen-semana.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0198289
+            }
+          ]
         },
         {
           "id": "tipo-de-dia",
-          "pass": false,
-          "failures": [
-            "unknown-class: La clase \"bg-neutral-100\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"ring-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-600\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-200\" no existe en el sistema. Consulta get_tokens.",
-            "no-raw-control: <button> dibujado a mano: usa Button.",
-            "no usa Chip"
-          ],
-          "rules": [
-            "unknown-class",
-            "no-raw-control"
-          ],
-          "turns": 1,
-          "cost": 0.0275749
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "tipo-de-dia.1.txt",
+              "pass": false,
+              "failures": [
+                "responde en texto"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0239369
+            },
+            {
+              "answer": "tipo-de-dia.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0195469
+            },
+            {
+              "answer": "tipo-de-dia.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0183529
+            }
+          ]
         },
         {
           "id": "registrar-sesion",
-          "pass": false,
-          "failures": [
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-2xl\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-300\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-800\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-100\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-lg\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-300\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-900\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-50\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"border-neutral-200\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-white\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"bg-neutral-50\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-neutral-500\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-red-600\" no existe en el sistema. Consulta get_tokens.",
-            "unknown-class: La clase \"text-green-700\" no existe en el sistema. Consulta get_tokens.",
-            "no-raw-control: <button> dibujado a mano: usa Button.",
-            "no-raw-control: <input> dibujado a mano: usa Input o Checkbox.",
-            "no usa SessionLog"
-          ],
-          "rules": [
-            "unknown-class",
-            "no-raw-control"
-          ],
-          "turns": 1,
-          "cost": 0.047364899999999995
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "registrar-sesion.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0195149
+            },
+            {
+              "answer": "registrar-sesion.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0210089
+            },
+            {
+              "answer": "registrar-sesion.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0206449
+            }
+          ]
+        },
+        {
+          "id": "aviso-guardado",
+          "passed": 1,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "aviso-guardado.1.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0244389
+            },
+            {
+              "answer": "aviso-guardado.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0206929
+            },
+            {
+              "answer": "aviso-guardado.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.020208900000000002
+            }
+          ]
+        },
+        {
+          "id": "calendario-sesion",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "calendario-sesion.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0212269
+            },
+            {
+              "answer": "calendario-sesion.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.022542899999999998
+            },
+            {
+              "answer": "calendario-sesion.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0197909
+            }
+          ]
+        },
+        {
+          "id": "elegir-ejercicio",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "elegir-ejercicio.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0193989
+            },
+            {
+              "answer": "elegir-ejercicio.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0199649
+            },
+            {
+              "answer": "elegir-ejercicio.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0202949
+            }
+          ]
+        },
+        {
+          "id": "progreso-peso",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "progreso-peso.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.019344899999999998
+            },
+            {
+              "answer": "progreso-peso.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0203929
+            },
+            {
+              "answer": "progreso-peso.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0198529
+            }
+          ]
+        },
+        {
+          "id": "pantalla-progreso",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "pantalla-progreso.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0225789
+            },
+            {
+              "answer": "pantalla-progreso.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0206889
+            },
+            {
+              "answer": "pantalla-progreso.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0210709
+            }
+          ]
+        },
+        {
+          "id": "migrar-lista",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "migrar-lista.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.022494899999999998
+            },
+            {
+              "answer": "migrar-lista.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0762509
+            },
+            {
+              "answer": "migrar-lista.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.023808899999999997
+            }
+          ]
+        }
+      ]
+    },
+    "con-reglas": {
+      "passed": 19,
+      "total": 36,
+      "rate": 53,
+      "cases": [
+        {
+          "id": "estado-vacio",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "estado-vacio.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.037787799999999996
+            },
+            {
+              "answer": "estado-vacio.2.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-prop: EmptyState no tiene la prop \"action\". Props: title, description, actionLabel, onAction."
+              ],
+              "rules": [
+                "unknown-prop"
+              ],
+              "turns": 1,
+              "cost": 0.0395578
+            },
+            {
+              "answer": "estado-vacio.3.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-prop: EmptyState no tiene la prop \"action\". Props: title, description, actionLabel, onAction."
+              ],
+              "rules": [
+                "unknown-prop"
+              ],
+              "turns": 1,
+              "cost": 0.0398658
+            }
+          ]
+        },
+        {
+          "id": "formulario-ejercicio",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "formulario-ejercicio.1.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-component: <HTMLFormElement> no existe en el sistema. Mira get_catalog; si falta, proponlo.",
+                "unknown-prop: FormLayout no tiene la prop \"actions\". Props: title, children, submitLabel, onSubmit, cancelLabel, onCancel, submitting.",
+                "missing-prop: A FormLayout le falta la prop obligatoria \"submitLabel\".",
+                "missing-prop: A FormLayout le falta la prop obligatoria \"onSubmit\"."
+              ],
+              "rules": [
+                "unknown-component",
+                "unknown-prop",
+                "missing-prop"
+              ],
+              "turns": 1,
+              "cost": 0.0490578
+            },
+            {
+              "answer": "formulario-ejercicio.2.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-component: <HTMLFormElement> no existe en el sistema. Mira get_catalog; si falta, proponlo.",
+                "unknown-prop: FormLayout no tiene la prop \"actions\". Props: title, children, submitLabel, onSubmit, cancelLabel, onCancel, submitting.",
+                "missing-prop: A FormLayout le falta la prop obligatoria \"submitLabel\".",
+                "missing-prop: A FormLayout le falta la prop obligatoria \"onSubmit\"."
+              ],
+              "rules": [
+                "unknown-component",
+                "unknown-prop",
+                "missing-prop"
+              ],
+              "turns": 1,
+              "cost": 0.048443799999999995
+            },
+            {
+              "answer": "formulario-ejercicio.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0391638
+            }
+          ]
+        },
+        {
+          "id": "borrar-sesion",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "borrar-sesion.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.038049799999999995
+            },
+            {
+              "answer": "borrar-sesion.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0371478
+            },
+            {
+              "answer": "borrar-sesion.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0368158
+            }
+          ]
+        },
+        {
+          "id": "resumen-semana",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "resumen-semana.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0427458
+            },
+            {
+              "answer": "resumen-semana.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0441478
+            },
+            {
+              "answer": "resumen-semana.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.043573799999999996
+            }
+          ]
+        },
+        {
+          "id": "tipo-de-dia",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "tipo-de-dia.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.044557799999999995
+            },
+            {
+              "answer": "tipo-de-dia.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0437578
+            },
+            {
+              "answer": "tipo-de-dia.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0446218
+            }
+          ]
+        },
+        {
+          "id": "registrar-sesion",
+          "passed": 0,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "registrar-sesion.1.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-prop: SessionLog no tiene la prop \"completed\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "unknown-prop: SessionLog no tiene la prop \"onToggleExercise\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "missing-prop: A SessionLog le falta la prop obligatoria \"onExerciseChange\"."
+              ],
+              "rules": [
+                "unknown-prop",
+                "missing-prop"
+              ],
+              "turns": 1,
+              "cost": 0.045567800000000006
+            },
+            {
+              "answer": "registrar-sesion.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0389838
+            },
+            {
+              "answer": "registrar-sesion.3.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-prop: SessionLog no tiene la prop \"title\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "unknown-prop: SessionLog no tiene la prop \"completed\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "unknown-prop: SessionLog no tiene la prop \"onToggleExercise\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "unknown-prop: SessionLog no tiene la prop \"saveLabel\". Props: dayTypes, dayType, onDayTypeChange, exercises, onExerciseChange, onSave, saving.",
+                "missing-prop: A SessionLog le falta la prop obligatoria \"onExerciseChange\"."
+              ],
+              "rules": [
+                "unknown-prop",
+                "missing-prop"
+              ],
+              "turns": 1,
+              "cost": 0.0431778
+            }
+          ]
+        },
+        {
+          "id": "aviso-guardado",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "aviso-guardado.1.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0399858
+            },
+            {
+              "answer": "aviso-guardado.2.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0414038
+            },
+            {
+              "answer": "aviso-guardado.3.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0433478
+            }
+          ]
+        },
+        {
+          "id": "calendario-sesion",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "calendario-sesion.1.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0433678
+            },
+            {
+              "answer": "calendario-sesion.2.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0405258
+            },
+            {
+              "answer": "calendario-sesion.3.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0417518
+            }
+          ]
+        },
+        {
+          "id": "elegir-ejercicio",
+          "passed": 2,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "elegir-ejercicio.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0374618
+            },
+            {
+              "answer": "elegir-ejercicio.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0406918
+            },
+            {
+              "answer": "elegir-ejercicio.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0419138
+            }
+          ]
+        },
+        {
+          "id": "progreso-peso",
+          "passed": 1,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "progreso-peso.1.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0366758
+            },
+            {
+              "answer": "progreso-peso.2.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.037561800000000006
+            },
+            {
+              "answer": "progreso-peso.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.040591800000000004
+            }
+          ]
+        },
+        {
+          "id": "pantalla-progreso",
+          "passed": 1,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "pantalla-progreso.1.tsx",
+              "pass": false,
+              "failures": [
+                "unknown-prop: ScreenState no tiene la prop \"status\". Props: state, message, onRetry.",
+                "missing-prop: A ScreenState le falta la prop obligatoria \"state\"."
+              ],
+              "rules": [
+                "unknown-prop",
+                "missing-prop"
+              ],
+              "turns": 1,
+              "cost": 0.0534738
+            },
+            {
+              "answer": "pantalla-progreso.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0523498
+            },
+            {
+              "answer": "pantalla-progreso.3.txt",
+              "pass": false,
+              "failures": [
+                "escribe una llamada a herramienta, no una respuesta"
+              ],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0460338
+            }
+          ]
+        },
+        {
+          "id": "migrar-lista",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "migrar-lista.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.049619800000000006
+            },
+            {
+              "answer": "migrar-lista.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.050129799999999995
+            },
+            {
+              "answer": "migrar-lista.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 1,
+              "cost": 0.0502458
+            }
+          ]
         }
       ]
     },
     "con-mcp": {
-      "passed": 6,
-      "total": 6,
-      "rate": 100,
+      "passed": 34,
+      "total": 36,
+      "rate": 94,
       "cases": [
         {
           "id": "estado-vacio",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 4,
-          "cost": 0.0423112
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "estado-vacio.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0353633
+            },
+            {
+              "answer": "estado-vacio.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.035437100000000006
+            },
+            {
+              "answer": "estado-vacio.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0352451
+            }
+          ]
         },
         {
           "id": "formulario-ejercicio",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 6,
-          "cost": 0.06493499999999999
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "formulario-ejercicio.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0648011
+            },
+            {
+              "answer": "formulario-ejercicio.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.06530760000000001
+            },
+            {
+              "answer": "formulario-ejercicio.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0622965
+            }
+          ]
         },
         {
           "id": "borrar-sesion",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 4,
-          "cost": 0.0404907
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "borrar-sesion.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0407999
+            },
+            {
+              "answer": "borrar-sesion.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.040935299999999994
+            },
+            {
+              "answer": "borrar-sesion.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0408959
+            }
+          ]
         },
         {
           "id": "resumen-semana",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 5,
-          "cost": 0.046103200000000004
+          "passed": 2,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "resumen-semana.1.tsx",
+              "pass": false,
+              "failures": [
+                "cifra sin formato español: Intl.NumberFormat('es-ES', { maximumFractionDigits: 1 }) sin useGrouping escribe «2480», no «2.480»"
+              ],
+              "rules": [],
+              "turns": 5,
+              "cost": 0.0461784
+            },
+            {
+              "answer": "resumen-semana.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 5,
+              "cost": 0.044612
+            },
+            {
+              "answer": "resumen-semana.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 5,
+              "cost": 0.0434575
+            }
+          ]
         },
         {
           "id": "tipo-de-dia",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 5,
-          "cost": 0.0422412
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "tipo-de-dia.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0492394
+            },
+            {
+              "answer": "tipo-de-dia.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 7,
+              "cost": 0.05529579999999999
+            },
+            {
+              "answer": "tipo-de-dia.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 5,
+              "cost": 0.045860099999999994
+            }
+          ]
         },
         {
           "id": "registrar-sesion",
-          "pass": true,
-          "failures": [],
-          "rules": [],
-          "turns": 7,
-          "cost": 0.06901489999999999
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "registrar-sesion.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.06177450000000001
+            },
+            {
+              "answer": "registrar-sesion.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0658852
+            },
+            {
+              "answer": "registrar-sesion.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0595257
+            }
+          ]
+        },
+        {
+          "id": "aviso-guardado",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "aviso-guardado.1.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 3,
+              "cost": 0.0359797
+            },
+            {
+              "answer": "aviso-guardado.2.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 2,
+              "cost": 0.0305671
+            },
+            {
+              "answer": "aviso-guardado.3.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 2,
+              "cost": 0.0302153
+            }
+          ]
+        },
+        {
+          "id": "calendario-sesion",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "calendario-sesion.1.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 3,
+              "cost": 0.0361395
+            },
+            {
+              "answer": "calendario-sesion.2.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0424399
+            },
+            {
+              "answer": "calendario-sesion.3.txt",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0445503
+            }
+          ]
+        },
+        {
+          "id": "elegir-ejercicio",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "elegir-ejercicio.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0399165
+            },
+            {
+              "answer": "elegir-ejercicio.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0422771
+            },
+            {
+              "answer": "elegir-ejercicio.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.0398773
+            }
+          ]
+        },
+        {
+          "id": "progreso-peso",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "progreso-peso.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 5,
+              "cost": 0.041861100000000005
+            },
+            {
+              "answer": "progreso-peso.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.040510000000000004
+            },
+            {
+              "answer": "progreso-peso.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 4,
+              "cost": 0.040558000000000004
+            }
+          ]
+        },
+        {
+          "id": "pantalla-progreso",
+          "passed": 2,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "pantalla-progreso.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 12,
+              "cost": 0.0992108
+            },
+            {
+              "answer": "pantalla-progreso.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 15,
+              "cost": 0.1273156
+            },
+            {
+              "answer": "pantalla-progreso.3.tsx",
+              "pass": false,
+              "failures": [
+                "cifra sin formato español: Intl.NumberFormat('es-ES') sin useGrouping escribe «2480», no «2.480»"
+              ],
+              "rules": [],
+              "turns": 11,
+              "cost": 0.0985426
+            }
+          ]
+        },
+        {
+          "id": "migrar-lista",
+          "passed": 3,
+          "total": 3,
+          "runs": [
+            {
+              "answer": "migrar-lista.1.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.05466889999999999
+            },
+            {
+              "answer": "migrar-lista.2.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0544947
+            },
+            {
+              "answer": "migrar-lista.3.tsx",
+              "pass": true,
+              "failures": [],
+              "rules": [],
+              "turns": 6,
+              "cost": 0.0570822
+            }
+          ]
         }
       ]
     }
-  }
+  },
+  "graded": "evals/answers/2026-11-21"
 }

@@ -1,0 +1,10 @@
+Falta información para construirlo sin inventar: no tengo acceso al catálogo de componentes de "robur-ds" (no hay node_modules ni documentación en el directorio de trabajo), así que no puedo confirmar que existan ni sus nombres ni sus props.
+
+Piezas que el formulario necesita:
+- Campo de texto (nombre)
+- Campo numérico (series y repeticiones)
+- Botón primario (crear)
+- Botón secundario/texto (cancelar)
+- Layout de formulario / etiquetas con mensaje de error
+
+Propuesta: pásame la lista de exports de robur-ds (o el contenido de su index.d.ts), o instala el paquete en el proyecto, y genero el componente usando solo esas piezas. Si alguna no existe (por ejemplo, un campo numérico), te indicaré cuál falta en lugar de construirla a mano con Tailwind.

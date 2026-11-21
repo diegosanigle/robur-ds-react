@@ -1,0 +1,11 @@
+Falta: un componente para avisos temporales (toast). El catálogo no tiene ninguno. Sheet es modal y exige que la persona lo cierre, Card es una superficie fija, y ScreenState y EmptyState cubren carga, error y vacío, no confirmaciones. Hacerlo a mano con un div y un setTimeout rompería las reglas del sistema.
+
+Propongo crear `Toast` con la skill /nuevo-componente, contrato primero:
+- Props: `open`, `duration` (ms antes de cerrarse solo), `onClose`, `children` (el mensaje).
+- Variantes: `default` y `success`. Usarían los tokens existentes `bg-inverse` con `text-on-inverse`, o `bg-success-soft` con `text-success`, además de `rounded-md` y `shadow-md`. No hacen falta tokens nuevos.
+- Accesibilidad: `role="status"` con `aria-live="polite"`, para que se anuncie sin quitar el foco.
+- Posición: anclado abajo, por encima de BottomNav.
+- Stories: una por variante, más `Interaccion`, que comprueba que aparece y desaparece solo.
+- Texto del aviso: «Sesión guardada». Sin exclamaciones ni lenguaje de meta.
+
+Una vez exista Toast, propongo también añadir al patrón SessionLog que lo muestre tras «Guardar sesión». Confírmame si sigo con el contrato de Toast.

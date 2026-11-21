@@ -1,0 +1,16 @@
+
+<invoke name="bash">
+<parameter name="command">cd /private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Sg819j && ls -la && ls node_modules/robur-ds 2>/dev/null && cat node_modules/robur-ds/package.json 2>/dev/null</parameter>
+</invoke>
+ĺ
+
+
+<invoke name="bash">
+<parameter name="command">cd /private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Sg819j && find . -maxdepth 3 -not -path './node_modules/.cache*' | head -100</parameter>
+</invoke>
+
+
+
+<invoke name="bash">
+<parameter name="command">cd /private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-Sg819j && ls -la; ls -la node_modules 2>&1 | head; grep -rl "robur-ds" . 2>/dev/null | head</parameter>
+</invoke>

@@ -1,0 +1,18 @@
+Falta una pieza: el sistema no tiene un selector de fecha ni un calendario de días.
+
+Lo que hay no sirve para esto:
+- `HeatmapYear` y `HeatmapCell` trabajan por semana ISO, no por día. Además son de solo lectura.
+- `WeekStrip` muestra solo los siete días de la semana en curso, así que no llega a sesiones pasadas.
+- `Input` es de una línea para texto o cifras (`numeric`). No tiene calendario, y no debo dar por hecho un `type="date"` que su contrato no declara.
+- `Select` sirve para listas, no para elegir un día entre meses de fechas.
+
+Propuesta:
+1. Un componente nuevo `DatePicker` (skill `/nuevo-componente`, contrato primero), basado en `<input type="date">`, que ya da el navegador.
+   - Props: `label`, `value`, `min`, `max`, `hint`, `error`.
+   - Con `max` en hoy, para que solo se puedan elegir días pasados.
+   - Zona pulsable de 44 px, estados de foco y de error igual que `Input`, solo con tokens existentes (`border-control`, `border-danger`, `text-control`, `*-focus-ring`).
+   - Texto de error del tipo «Elige un día que ya haya pasado».
+2. Opcional, si quieres ver en el calendario qué días tuvieron sesión: un componente `CalendarMonth`, con una celda por día y marca en los días con sesión. Reutilizaría los tokens `heat-*`. Haría falta decidir su contrato antes de programarlo.
+3. Después, un patrón (por ejemplo, ampliar `SessionLog` con un paso «Día de la sesión») que use `DatePicker` dentro de un `Sheet`.
+
+Dime si quieres que empiece por `DatePicker`.

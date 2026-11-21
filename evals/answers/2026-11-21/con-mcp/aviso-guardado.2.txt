@@ -1,0 +1,19 @@
+Falta una pieza: no hay Toast ni Snackbar (aviso temporal que se descarta solo) en el catálogo de Robur DS.
+
+Ninguna pieza existente sirve para esto:
+- Sheet es modal y exige que la persona lo cierre.
+- Card es una superficie estática, sin comportamiento de aparición ni desaparición, y no tiene rol de aviso (role="status" / aria-live).
+- ConfirmSheet pide confirmación, que aquí no se necesita.
+
+Hacerlo a mano con una Card y un temporizador sería improvisar una pieza que el sistema no define. Tampoco hay tokens de posición, de elevación para superposiciones ni de animación.
+
+Propuesta: añadir un componente Toast con estas características.
+- Props: message (string), tone ("success" | "neutral"), duration (ms, por defecto 4000), onDismiss.
+- Accesibilidad: role="status" con aria-live="polite". No debe robar el foco.
+- La duración debe poder pausarse al pasar el cursor o al enfocarlo. Debe respetar prefers-reduced-motion.
+- Posición: anclado arriba de BottomNav, sin taparla.
+- Icono: Icon de "check" para el tono success.
+- Texto de ejemplo: «Sesión guardada».
+- Tokens: una sombra de superposición y un fondo (por ejemplo bg-inverse con su texto).
+
+Cuando exista Toast, SessionLog podría lanzarlo al guardar la sesión.

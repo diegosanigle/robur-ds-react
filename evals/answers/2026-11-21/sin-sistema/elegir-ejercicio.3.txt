@@ -1,0 +1,9 @@
+Voy a comprobar qué piezas ofrece `robur-ds` antes de escribir el componente.
+
+
+<invoke name="Glob">
+<parameter name="pattern">**/robur-ds/**/*</parameter>
+</invoke>
+<invoke name="Glob">
+<parameter name="pattern">*</parameter>
+</invoke>

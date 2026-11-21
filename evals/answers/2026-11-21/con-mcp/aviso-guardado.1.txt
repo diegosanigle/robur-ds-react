@@ -1,0 +1,9 @@
+Falta una pieza: el catálogo de Robur DS no tiene ningún aviso temporal (Toast o Snackbar). Los otros componentes no sirven en su lugar. Sheet es modal y no desaparece solo. Card, StatCard y EmptyState son superficies fijas, no avisos. Hacerlo a mano con un div y estilos propios iría contra las reglas del sistema.
+
+Propongo añadir un componente `Toast`:
+- Props: `message` (string, en español), `open` (boolean), `onClose` (function) y `duration` (número en ms, por defecto 4000).
+- Un solo tono, neutro, que confirma sin juzgar. Por ejemplo: «Sesión guardada».
+- Se renderiza con `role="status"` y `aria-live="polite"`, para que un lector de pantalla lo anuncie sin quitar el foco.
+- Se cierra solo tras `duration` y también se puede cerrar con un botón. Respeta `prefers-reduced-motion`.
+- Se ancla sobre el BottomNav y no tapa ninguna acción.
+- Necesita tokens de fondo, texto y sombra. Se pueden reutilizar los existentes, como bg-inverse y una sombra de elevación.

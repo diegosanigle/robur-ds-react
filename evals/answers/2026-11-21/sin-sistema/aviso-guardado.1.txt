@@ -1,0 +1,10 @@
+Falta confirmar la pieza: no tengo acceso al catálogo de "robur-ds" y no puedo comprobar que exista un componente Toast, Snackbar o Notification. Para no inventar una importación ni maquetar el aviso a mano con Tailwind, no genero el componente.
+
+Propuesta:
+1. Si el DS ya tiene un Toast (o equivalente), dime su nombre y su API (props como `variant`, `duration`, `onClose`). Escribo entonces el componente "Sesión guardada" con cierre automático a los 3-4 s usando esa pieza.
+2. Si no existe, conviene añadir al DS un `Toast` con:
+   - variantes (`success`, `error`, `info`),
+   - prop `duration` con cierre automático,
+   - `role="status"` y `aria-live="polite"` para accesibilidad,
+   - un `ToastProvider` y un hook `useToast()` para dispararlo desde cualquier pantalla.
+   Después, el aviso de sesión guardada sería una sola llamada: `toast.success("Sesión guardada")`.

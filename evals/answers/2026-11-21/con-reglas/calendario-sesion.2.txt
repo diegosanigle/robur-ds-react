@@ -1,0 +1,12 @@
+Falta un selector de fecha: el sistema no tiene ningún componente que muestre un calendario y deje elegir un día.
+
+Lo más cercano no sirve:
+- WeekStrip muestra solo los siete días de la semana en curso, y la sesión es pasada.
+- HeatmapYear y HeatmapCell trabajan por semana ISO, no por día, y son de lectura.
+- Input no tiene modo fecha (solo `label`, `hint`, `error`, `numeric`). Un campo de texto con la fecha escrita a mano sería inventar un control.
+
+Propongo:
+1. Un componente nuevo `DatePicker`, con las props `label`, `value`, `max`, `hint` y `error`. Usaría un `<input type="date">` nativo, con `max` en la fecha de hoy para que solo se puedan elegir días pasados. Tendría la misma altura de 44 px y el mismo estilo que Input, y declararía Input en `composes` si comparte la estructura de etiqueta y mensajes. Se crearía con la skill /nuevo-componente: primero el contrato, después el código.
+2. Si la elección va a repetirse dentro de un flujo (por ejemplo, registrar una sesión pasada), un patrón nuevo que combine DatePicker con SessionLog.
+
+Cuando exista DatePicker, la pantalla sería un FormLayout con DatePicker («Fecha de la sesión») y un Button «Guardar sesión».

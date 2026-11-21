@@ -1,0 +1,8 @@
+
+<invoke name="Bash">
+<parameter name="command">cd /private/var/folders/kj/ct_nggss1lz0rl9q69w2stj00000gn/T/robur-eval-P0OtF0 && ls -la && ls node_modules 2>/dev/null | head -50 && find . -maxdepth 3 -iname "*robur*" -not -path "./node_modules/.cache/*" 2>/dev/null | head</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*</parameter>
+</invoke>

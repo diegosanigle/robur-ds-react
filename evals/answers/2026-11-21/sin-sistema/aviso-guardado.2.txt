@@ -1,0 +1,13 @@
+
+<invoke name="Bash">
+<parameter name="command">ls -la; ls node_modules/robur-ds 2>/dev/null | head -50; cat package.json 2>/dev/null</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*robur*</parameter>
+</invoke>
+
+<invoke name="Grep">
+<parameter name="pattern">Toast|Snackbar|Notification|Alert</parameter>
+<parameter name="output_mode">files_with_matches</parameter>
+</invoke>

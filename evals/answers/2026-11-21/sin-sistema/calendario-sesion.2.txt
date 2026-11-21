@@ -1,0 +1,21 @@
+
+<invoke name="Bash">
+<parameter name="command">ls -la; ls node_modules/robur-ds 2>/dev/null; cat node_modules/robur-ds/package.json 2>/dev/null</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*robur-ds*</parameter>
+</invoke>
+
+<invoke name="Grep">
+<parameter name="pattern">robur-ds</parameter>
+<parameter name="output_mode">files_with_matches</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*.{md,json,d.ts}</parameter>
+</invoke>
+
+<invoke name="Glob">
+<parameter name="pattern">**/*</parameter>
+</invoke>
