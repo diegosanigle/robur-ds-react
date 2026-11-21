@@ -61,7 +61,7 @@ export function numberFormatIssues(code) {
   }
   for (const [call] of code.matchAll(/\.toFixed\([^)]*\)/g)) issues.push(`cifra sin formato español: ${call} escribe «62.5», no «62,5»`)
   // Cifras de cuatro o más dígitos escritas a mano, en el texto o en un atributo de texto.
-  const texts = [...code.matchAll(/>([^<>{}]+)</g), ...code.matchAll(/\b(?!className|key|id\b)[a-zA-Z-]+="([^"]*)"/g)].map((m) => m[1])
+  const texts = [...code.matchAll(/>([^<>{}]+)</g), ...code.matchAll(/\b(?!className|class\b|key|id\b)[a-zA-Z-]+="([^"]*)"/g)].map((m) => m[1])
   for (const text of texts) for (const [n] of text.matchAll(/(?<![\d.,])\d{4,}(?![\d.,]\d)/g)) if (!isYear(n)) issues.push(`cifra sin formato español: «${text.trim()}» escribe ${n} sin punto de miles`)
   return issues
 }
