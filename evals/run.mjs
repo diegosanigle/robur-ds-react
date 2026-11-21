@@ -136,6 +136,10 @@ if (process.argv[1] === import.meta.filename) {
   console.log(`\nResultado (${results.model}):`)
   for (const [condition, r] of Object.entries(results.conditions)) console.log(`  ${condition.padEnd(12)} ${r.passed}/${r.total}  (${r.rate} %)`)
 
+  // Una re-puntuación se guarda aparte, con el nombre que se le dé: --grade <carpeta> --save <nombre>.
+  const saveAs = arg('save')
+  if (gradeDir && saveAs) writeFileSync(join(import.meta.dirname, 'results', `${saveAs}.json`), `${JSON.stringify({ ...results, graded: gradeDir }, null, 2)}\n`)
+
   if (!gradeDir && !only) {
     mkdirSync(join(import.meta.dirname, 'results'), { recursive: true })
     writeFileSync(join(import.meta.dirname, 'results', 'latest.json'), `${JSON.stringify(results, null, 2)}\n`)
